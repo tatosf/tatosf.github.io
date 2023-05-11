@@ -328,7 +328,6 @@ canvas {
     max-width: 100%;
     position: relative;
     overflow-x: hidden;
-    overflow-y: hidden;
     margin: 0;
     padding: 0;
   }

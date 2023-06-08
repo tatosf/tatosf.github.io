@@ -311,7 +311,7 @@ canvas {
   transform: translate(-50%, -50%);
   font-family: 'Space Mono', monospace;
   font-style: normal;
-  font-size: 11px; /* Set the font size */
+  font-size: 11.5px; /* Set the font size */
   color: black; /* Set the text color */
 }
 
@@ -358,7 +358,7 @@ canvas {
     position: absolute;
     top: 55%; /* Adjust the position of the text vertically */
     left: 50%; /* Adjust the position of the text horizontally */
-    font-size: 9px;
+    font-size: 10px;
   }
 
   .icons img {

@@ -58,6 +58,11 @@ const workExperienceItems = [
     years: 'May - July 2022',
     description: 'Predicting operations with high risk of money laundering, identifying relevant features based on big data.',
   },
+  {
+    title: 'MUSCLE - Intern',
+    years: 'June - August 2023',
+    description: 'Currently helping in quality assurance validation for banking software development.',
+  },
 ];
 workExperienceItems.forEach(item => {
   const box = createWorkExperienceBox(item);

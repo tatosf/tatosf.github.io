@@ -59,9 +59,9 @@ const workExperienceItems = [
     description: 'Predicting operations with high risk of money laundering, identifying relevant features based on big data.',
   },
   {
-    title: 'MUSCLE - Intern',
+    title: 'MUSCLE Points - Software Dev Intern',
     years: 'June - August 2023',
-    description: 'Currently helping in quality assurance validation for banking software development.',
+    description: 'Helping in Fin-Tech banking software development.',
   },
 ];
 workExperienceItems.forEach(item => {

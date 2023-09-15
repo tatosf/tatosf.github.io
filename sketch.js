@@ -13,12 +13,9 @@ var flowfield;
 
 var canvas;
 
-function windowResized() {
-  resizeCanvas(document.documentElement.clientWidth, document.documentElement.clientHeight);
-}
 
 function setup() {
-  canvas = createCanvas(windowWidth, windowHeight);
+  canvas = createCanvas(windowWidth+30, windowHeight+30);
   canvas.position(0,0);
   canvas.style('z-index','-1');
   cols = floor(width / scl);

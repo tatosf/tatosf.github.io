@@ -15,7 +15,7 @@ var canvas;
 
 
 function setup() {
-  canvas = createCanvas(windowWidth+30, windowHeight+30);
+  canvas = createCanvas(windowWidth+30, windowHeight+40);
   canvas.position(0,0);
   canvas.style('z-index','-1');
   cols = floor(width / scl);

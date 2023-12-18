@@ -100,7 +100,7 @@ header h1 {
 
 #custom-substack-embed {
   position: fixed;
-  bottom: 50;
+  bottom: 50px;
   left: 0;
   right: 0;
   margin: auto;

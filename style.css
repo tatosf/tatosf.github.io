@@ -64,11 +64,7 @@ body.work-page {
   margin-top: -30px;
   white-space: nowrap;
   border-right: .1em solid black;
-  animation:
-    typing 4s steps(40, end),
-    blinking 1s step-end infinite;
-    height: 30%;
-    line-height: 1;
+  font-family: 'Space Mono', monospace;
 }
 
 .centered {
@@ -99,17 +95,18 @@ header h1 {
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
+  margin-top: 40px;
 }
 
 #custom-substack-embed {
   position: fixed;
-  bottom: 0;
+  bottom: 50;
   left: 0;
   right: 0;
   margin: auto;
   width: 80%;
   max-width: 800px;
-  padding: 1rem;
+  padding: 6rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 1;
   display: flex;
@@ -301,7 +298,6 @@ canvas {
   justify-content: center;
   text-align: center;
   box-sizing: border-box;
-  font-weight: bold;
 }
 
 .message-text {
@@ -351,7 +347,6 @@ canvas {
     justify-content: center;
     text-align: center;
     box-sizing: border-box;
-    font-weight: bold;
   }
 
   .message-text {

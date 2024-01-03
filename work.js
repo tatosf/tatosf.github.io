@@ -31,7 +31,7 @@ function createGitHubRepoBox(githubRepo) {
 // fetch repositories
 octokit.repos.listForUser({
   username: 'tatosf',
-  per_page: 5,  
+  per_page: 6,  
   sort: 'created',  
   direction: 'desc'  
 }).then(({ data }) => {

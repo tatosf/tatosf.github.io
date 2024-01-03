@@ -6,8 +6,6 @@ const octokit = new Octokit();
 function createWorkExperienceBox(workExperience) {
   const box = document.createElement('div');
   box.className = 'box work-box';
-
-  // Add your work experience details inside the box
   box.innerHTML = `
     <h3>${workExperience.title}</h3>
     <p class= "years">${workExperience.years}</p>
@@ -17,12 +15,11 @@ function createWorkExperienceBox(workExperience) {
   return box;
 }
 
-// Function to create a box for each GitHub repo
+// creating a box for each GitHub repo
 function createGitHubRepoBox(githubRepo) {
   const box = document.createElement('div');
   box.className = 'box github-box';
 
-  // Add your GitHub repo details inside the box
   box.innerHTML = `
     <h3><a href="${githubRepo.html_url}">${githubRepo.name}</a></h3>
     <p>${githubRepo.description}</p>
@@ -33,9 +30,12 @@ function createGitHubRepoBox(githubRepo) {
 
 // fetch repositories
 octokit.repos.listForUser({
-  username: 'tatosf'
+  username: 'tatosf',
+  per_page: 5,  
+  sort: 'created',  
+  direction: 'desc'  
 }).then(({ data }) => {
-  // Populate GitHub repo boxes
+  // populate git repo boxes
   const githubReposContainer = document.getElementById('github-repos-container');
   data.forEach(githubRepo => {
     const box = createGitHubRepoBox(githubRepo);
@@ -44,6 +44,7 @@ octokit.repos.listForUser({
 }).catch(error => {
   console.error(error);
 });
+
 
 // display work experience
 const workExperienceContainer = document.getElementById('work-experience-container');
@@ -59,9 +60,9 @@ const workExperienceItems = [
     description: 'Predicting operations with high risk of money laundering, identifying relevant features based on big data.',
   },
   {
-    title: 'MUSCLE Points - Software Dev Intern',
+    title: 'MUSCLE Points - Software Engineer Intern',
     years: 'June - August 2023',
-    description: 'Helping in Fin-Tech banking software development.',
+    description: 'Helped create web application for KPI internal metrics using React.',
   },
 ];
 workExperienceItems.forEach(item => {

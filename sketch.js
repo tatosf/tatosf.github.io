@@ -1,6 +1,8 @@
 
 var inc = 0.05;
+
 var scl = 10;
+
 var cols, rows;
 
 var zoff = 0;
@@ -27,7 +29,7 @@ function setup() {
   for (var i = 0; i < 300; i++) {
     particles[i] = new Particle();
   }
-  background(51);
+  background(20);
 }
 
 function draw() {
@@ -47,14 +49,12 @@ function draw() {
 
     zoff += 0.0003;
   }
-
   for (var i = 0; i < particles.length; i++) {
     particles[i].follow(flowfield);
     particles[i].update();
     particles[i].edges();
     particles[i].show();
   }
-
 }
 
 

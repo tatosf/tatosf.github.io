@@ -3,23 +3,18 @@ body {
   font-size: 1rem;
   font-weight: 400;
   color: whitesmoke;
-  font-family: 'Space Mono', monospace;
+  font-family: "Source Code Pro", monospace;
   font-style: normal;
-  line-height: 1.4;
+  line-height: 1.8;
   min-height: 100%;
   overflow-x: hidden;
 
 }
 
-@keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
-}
-
-@keyframes blinking {
-  0%,
-  100% {border-color: transparent;}
-  50% {border-color: black;}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #202020;
 }
 
 .main {
@@ -41,30 +36,15 @@ body {
   flex-direction: column;
 }
 
-body.writing-page {
-  background-image: url("images/background3.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
-body.work-page {
-  background-image: url("images/background5.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
 
 .writing_header h1 {
   text-align: center;
   padding: 2rem;
   overflow: hidden;
-  color: whitesmoke;
+  color: #7CFC00;
   margin-top: -30px;
   white-space: nowrap;
-  border-right: .1em solid black;
-  font-family: 'Space Mono', monospace;
+  font-family: "Source Code Pro", monospace;
 }
 
 .centered {
@@ -114,6 +94,14 @@ header h1 {
   align-items: center;
 }
 
+#custom-substack-widget {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 80px;
+
+}
+
 @media screen and (max-width: 768px) {
   .writing-page {
     padding: 1rem;
@@ -128,13 +116,13 @@ header h1 {
   }
   
   #custom-substack-embed {
-    display: none; /* Hide the element on phone screens */
+    display: none; 
   }
 
   .writing_header h1 {
-    font-size: 13px;
-    line-height: 1.2;
-    margin-top: 20px;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-top: 60px;
     padding: 0.5rem;
     white-space: normal;
     animation: none;
@@ -143,38 +131,43 @@ header h1 {
   #substack-feed-embed {
     width: 100%;
     max-width: 100%;
-    margin-top: 40px;
+    margin-top: 110px;
   }
   
-  /* Adjust the height and overflow properties for the wrapper on mobile devices */
+ 
   #wrapper {
     max-height: 100vh;
     overflow-y: auto;
   }
   
   .writing-page main {
-    margin-bottom: 1rem; /* Add margin-bottom to create space for the custom embed */
+    margin-bottom: 1rem; 
   }
 }
 
 .main-content {
-  max-width: 90%; /* Limit the width of the main content */
-  margin: 0 auto; /* Center the main content */
+  max-width: 90%; 
+  margin: 0 auto; 
 }
 
 .about-marble {
   transform: translate(-870%, 50%);
 }
 
+.about-marble-work {
+  padding: 2rem;
+  margin-top: 20rem;
+}
+
 @media screen and (max-width: 768px) {
   .about-marble {
-    top: 50%; /* Move the icon 50% from the top */
-    left: 80%; /* Move the icon 50% from the left */
-    transform: translate(-310%, 30%); /* Center the icon based on its dimensions */
+    top: 50%; 
+    left: 80%;
+    transform: translate(-310%, 30%); 
   }
   .about-marble-work{
     padding: 1rem;
-    margin-top: 1rem;
+    margin-top: 5rem;
   }
 }
 
@@ -191,13 +184,18 @@ header h1 {
 }
 
 a {
-  color: aqua;
+  color: #7CFC00;
   text-decoration: none; /* remove underline */
 }
+
 
 a:hover {
   color: white;
   transition: all 0.2s ease-in-out;
+}
+
+.github-box a {
+  color: white;
 }
 
 .work-page {
@@ -239,9 +237,9 @@ canvas {
 
 .icons {
   position: absolute;
-  top: 50%; /* Position from the center of the body */
-  left: 50%; /* Position from the center of the body */
-  transform: translate(-50%, -50%); /* Center the icons */
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
 }
 
 .icons img {
@@ -266,6 +264,7 @@ canvas {
 #icon4 {
   width: 75px;
   height: 75px;
+  margin-top: 20px;
 }
 
 .icon-link {
@@ -302,16 +301,16 @@ canvas {
 
 .message-text {
   position: absolute;
-  top: 55%; /* Adjust the position of the text vertically */
-  left: 50%; /* Adjust the position of the text horizontally */
+  top: 55%; 
+  left: 50%; 
   transform: translate(-50%, -50%);
-  font-family: 'Space Mono', monospace;
+  font-family: "Source Code Pro", monospace;
   font-style: normal;
-  font-size: 11.5px; /* Set the font size */
-  color: black; /* Set the text color */
+  font-size: 11.5px;
+  color: #7CFC00; 
 }
 
-/* Media query for mobile screens */
+
 @media (max-width: 768px) {
   html {
     height: 100%;
@@ -426,8 +425,8 @@ canvas {
 }
 
 .work-box h3 {
+  color: white;
   margin-bottom: 40px;
-  color: aqua;
   font-size:medium;
   text-align: center;
 }
@@ -452,7 +451,8 @@ section {
 }
 
 section h2 {
-  margin-top: 100px; /* Adjust this value as needed to align the headings */
+  margin-top: 100px; 
+  color: #7CFC00;
 }
 
 .sections-container {

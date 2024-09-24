@@ -1,58 +1,8 @@
-
-
-function createWorkExperienceBox(workExperience) {
-  const box = document.createElement('div');
-  box.className = 'box work-box';
-  box.innerHTML = `
-    <h3>${workExperience.title}</h3>
-    <p class= "years">${workExperience.years}</p>
-    <p>${workExperience.description}</p>
-  `;
-
-  return box;
-}
-
-// creating a box for each GitHub repo
-function createGitHubRepoBox(githubRepo) {
-  const box = document.createElement('div');
-  box.className = 'box github-box';
-
-  box.innerHTML = `
-    <h3><a href="${githubRepo.html_url}">${githubRepo.name}</a></h3>
-    <p>${githubRepo.description}</p>
-  `;
-
-  return box;
-}
-
-function fetchGitHubRepos() {
-  const githubReposContainer = document.getElementById('github-repos-container');
-  if (!githubReposContainer) {
-    console.error('GitHub repos container not found');
-    return;
-  }
-
-  fetch('https://api.github.com/users/tatosf/repos?sort=created&direction=desc&per_page=6')
-    .then(response => response.json())
-    .then(data => {
-      const fragment = document.createDocumentFragment();
-      data.forEach(githubRepo => {
-        const box = createGitHubRepoBox(githubRepo);
-        fragment.appendChild(box);
-      });
-      githubReposContainer.appendChild(fragment);
-    })
-    .catch(error => {
-      console.error('Error fetching GitHub repos:', error);
-    });
-}
-
-// Ensure the DOM is fully loaded before calling the function
-document.addEventListener('DOMContentLoaded', fetchGitHubRepos);
-
-
-
 document.addEventListener('DOMContentLoaded', function() {
+  // Fetch and display GitHub repos
+  fetchGitHubRepos();
+
+  // Display work experience
   const workExperienceContainer = document.getElementById('work-experience-container');
   if (workExperienceContainer) {
     const workExperienceItems = [
@@ -87,3 +37,25 @@ document.addEventListener('DOMContentLoaded', function() {
     console.error('Work experience container not found');
   }
 });
+
+function fetchGitHubRepos() {
+  const githubReposContainer = document.getElementById('github-repos-container');
+  if (!githubReposContainer) {
+    console.error('GitHub repos container not found');
+    return;
+  }
+
+  fetch('https://api.github.com/users/tatosf/repos?sort=created&direction=desc&per_page=6')
+    .then(response => response.json())
+    .then(data => {
+      const fragment = document.createDocumentFragment();
+      data.forEach(githubRepo => {
+        const box = createGitHubRepoBox(githubRepo);
+        fragment.appendChild(box);
+      });
+      githubReposContainer.appendChild(fragment);
+    })
+    .catch(error => {
+      console.error('Error fetching GitHub repos:', error);
+    });
+}

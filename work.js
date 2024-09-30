@@ -1,4 +1,4 @@
-
+let githubReposFetched = false;
 
 function createWorkExperienceBox(workExperience) {
   const box = document.createElement('div');
@@ -26,33 +26,38 @@ function createGitHubRepoBox(githubRepo) {
 }
 
 function fetchGitHubRepos() {
+  if (githubReposFetched) {
+    console.log('GitHub repos already fetched. Skipping...');
+    return;
+  }
+
   const githubReposContainer = document.getElementById('github-repos-container');
   if (!githubReposContainer) {
     console.error('GitHub repos container not found');
     return;
   }
 
+  // Clear existing content to prevent duplication
+  githubReposContainer.innerHTML = '';
+
   fetch('https://api.github.com/users/tatosf/repos?sort=created&direction=desc&per_page=6')
     .then(response => response.json())
     .then(data => {
       const fragment = document.createDocumentFragment();
-      data.forEach(githubRepo => {
+      // Limit to 6 repos
+      data.slice(0, 6).forEach(githubRepo => {
         const box = createGitHubRepoBox(githubRepo);
         fragment.appendChild(box);
       });
       githubReposContainer.appendChild(fragment);
+      githubReposFetched = true;
     })
     .catch(error => {
       console.error('Error fetching GitHub repos:', error);
     });
 }
 
-// Ensure the DOM is fully loaded before calling the function
-document.addEventListener('DOMContentLoaded', fetchGitHubRepos);
-
-
-
-document.addEventListener('DOMContentLoaded', function() {
+function initializePage() {
   const workExperienceContainer = document.getElementById('work-experience-container');
   if (workExperienceContainer) {
     const workExperienceItems = [
@@ -86,4 +91,15 @@ document.addEventListener('DOMContentLoaded', function() {
   } else {
     console.error('Work experience container not found');
   }
-});
+
+  fetchGitHubRepos();
+
+  // Show the page content after initialization
+  const pageBody = document.getElementById('page-body');
+  if (pageBody) {
+    pageBody.style.display = 'block';
+  }
+}
+
+// Only call initializePage when the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', initializePage);

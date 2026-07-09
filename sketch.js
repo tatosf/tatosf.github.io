@@ -22,7 +22,7 @@ function setup() {
 
   flowfield = new Array(cols * rows);
 
-  for (var i = 0; i < 250; i++) {
+  for (var i = 0; i < 150; i++) {
     particles[i] = new Particle();
   }
   background(32);

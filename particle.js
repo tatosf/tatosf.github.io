@@ -15,11 +15,13 @@ class Particle {
     }
   
     follow(vectors) {
-      var x = floor(this.pos.x / scl);
-      var y = floor(this.pos.y / scl);
+      var x = constrain(floor(this.pos.x / scl), 0, cols - 1);
+      var y = constrain(floor(this.pos.y / scl), 0, rows - 1);
       var index = x + y * cols;
       var force = vectors[index];
-      this.applyForce(force);
+      if (force) {
+        this.applyForce(force);
+      }
     }
   
     applyForce(force) {

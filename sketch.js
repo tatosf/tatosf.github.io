@@ -1,4 +1,3 @@
-
 var inc = 0.05;
 
 var scl = 10;
@@ -6,8 +5,6 @@ var scl = 10;
 var cols, rows;
 
 var zoff = 0;
-
-var fr;
 
 var particles = [];
 
@@ -17,19 +14,26 @@ var canvas;
 
 
 function setup() {
-  canvas = createCanvas(windowWidth+30, windowHeight+40);
-  canvas.position(0,0);
-  canvas.style('z-index','-1');
+  canvas = createCanvas(windowWidth, windowHeight);
+  canvas.position(0, 0);
+  canvas.style('z-index', '-1');
   cols = floor(width / scl);
   rows = floor(height / scl);
-  fr = createP('');
 
   flowfield = new Array(cols * rows);
 
-  for (var i = 0; i < 300; i++) {
+  for (var i = 0; i < 200; i++) {
     particles[i] = new Particle();
   }
-  background(20);
+  background(32);
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  cols = floor(width / scl);
+  rows = floor(height / scl);
+  flowfield = new Array(cols * rows);
+  background(32);
 }
 
 function draw() {
@@ -43,7 +47,6 @@ function draw() {
       v.setMag(1);
       flowfield[index] = v;
       xoff += inc;
-      stroke(0, 50);
     }
     yoff += inc;
 
@@ -56,11 +59,3 @@ function draw() {
     particles[i].show();
   }
 }
-
-
-
-
-
-
-
-
